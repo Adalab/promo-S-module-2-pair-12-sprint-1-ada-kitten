@@ -74,36 +74,81 @@ if (kittenRace === "") {
 let formElement = document.querySelector(".js-new-form");
 let formCollapsed = document.querySelector(".js-new-form1");
 
+formElement.addEventListener('click', handleClickNewCatForm);
 
-formElement.addEventListener('click', (event)=>{
-    if (formCollapsed.classList.contains('collapsed')) {
-        formCollapsed.classList.remove('collapsed');
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (formCollapsed.classList.contains('collapsed')) {
+        showNewCatForm();
     } else {
         formCollapsed.classList.add('collapsed');
+        hideNewCatForm();
     }
-});
+};
+
+// formElement.addEventListener('click', () =>{
+//     if (formCollapsed.classList.contains('collapsed')) {
+//         showNewCatForm();
+//     } else {
+//         formCollapsed.classList.add('collapsed');
+//         hideNewCatForm();
+//     }
+// });
+
+function showNewCatForm() {
+  formCollapsed.classList.remove('collapsed');
+}
+function hideNewCatForm() {
+  formCollapsed.classList.add('collapsed');
+}
 
 //AÑADIR GATO
 
 let buttonAdd = document.querySelector(".js-btn-add");
 
-const inputDesc = document.querySelector('.js-input-desc');
-const inputPhoto = document.querySelector('.js-input-photo');
-const inputName = document.querySelector('.js-input-name');
+let inputDesc = document.querySelector('.js-input-desc');
+let inputPhoto = document.querySelector('.js-input-photo');
+let inputName = document.querySelector('.js-input-name');
+let inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
-buttonAdd.addEventListener('click', (event)=>{
-    event.preventDefault();
-    const valueDesc = inputDesc.value;
-    const valuePhoto = inputPhoto.value;
-    const valueName = inputName.value;
+// buttonAdd.addEventListener('click', (event)=>{
+//     event.preventDefault();
+//     const valueDesc = inputDesc.value;
+//     const valuePhoto = inputPhoto.value;
+//     const valueName = inputName.value;
 
+//     if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+//         labelMessageError.innerHTML="Uy, parece que has olvidado algo!";
+//     } else {
+        
+//     }
+// });
+
+//modifica el evento para cumplir una función manejadora
+buttonAdd.addEventListener('click', addNewKitten);
+
+
+
+function addNewKitten(event) {
+  //mueve el código que está dentro del evento
+  event.preventDefault();
+    let valueDesc = inputDesc.value;
+    let valuePhoto = inputPhoto.value;
+    let valueName = inputName.value;
+   let valueRace = inputRace.value; 
+   
+   console.log(valueDesc);
     if (valueDesc === '' || valuePhoto === '' || valueName === '') {
         labelMessageError.innerHTML="Uy, parece que has olvidado algo!";
+        console.log('medio');
     } else {
-        
+        renderKitten(valuePhoto, valueDesc, valueName, valueRace);
+        console.log('hola');
     }
-});
+}
+
+
 
 //CANCELAR FORMULARIO Y VACIAR INPUTS
 
@@ -120,3 +165,17 @@ btnCancel.addEventListener('click', (event)=>{
         formCollapsed.classList.add('collapsed');
     }
 });
+
+//AÑADIR GATO: 
+
+
+// let valueDesc = inputDesc.value;
+// let valuePhoto = inputPhoto.value;
+// let valueName = inputName.value;
+
+function renderKitten(valuePhoto, valueDesc, valueName, valueRace) {
+  //completa el código
+    let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${valueRace} ${valueDesc}</li>`;
+    kitten.innerHTML += newKitten;
+
+}
