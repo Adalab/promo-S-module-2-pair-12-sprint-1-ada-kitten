@@ -105,4 +105,18 @@ buttonAdd.addEventListener('click', (event)=>{
     }
 });
 
-//CANCELAR FORMULARIO
+//CANCELAR FORMULARIO Y VACIAR INPUTS
+
+const btnCancel = document.querySelector('.js-btn-cancel');
+
+btnCancel.addEventListener('click', (event)=>{
+    if(valueDesc !=='' || valuePhoto!== '' || valueName!==''){
+        valueDesc === '';
+        valuePhoto === ''; 
+        valueName === '';
+        formCollapsed.classList.add('collapsed');
+
+    }else{
+        formCollapsed.classList.add('collapsed');
+    }
+});
