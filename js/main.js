@@ -167,8 +167,6 @@ btnCancel.addEventListener('click', (event)=>{
 });
 
 //AÑADIR GATO: 
-
-
 // let valueDesc = inputDesc.value;
 // let valuePhoto = inputPhoto.value;
 // let valueName = inputName.value;
@@ -178,4 +176,4 @@ function renderKitten(valuePhoto, valueDesc, valueName, valueRace) {
     let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${valueRace} ${valueDesc}</li>`;
     kitten.innerHTML += newKitten;
 
-}
+};
