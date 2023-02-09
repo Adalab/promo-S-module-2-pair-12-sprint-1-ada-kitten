@@ -13,25 +13,26 @@ const kittenThree = '<li class="card"><img class="card_img" src="https://dev.ada
 kitten.innerHTML=kittenOne + kittenTwo + kittenThree;*/
 
 const kitten=document.querySelector('.js-list');
+//CREAR GATITO
 
-const kittenImageOne = '<img class="card_img" src="https://dev.adalab.es/gato-siames.webp" alt="gatito"/>' ;
-const kittenNameOne = '<h3 class="card_title">Anastacio</h3>';
-const kittenDescriptionOne = '<p class="card_description">Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente. (Imagen no correspondiente)</p>';
-const kittenRaceOne = '<h4 class="card_race">Siamés</h4>';
+// const kittenImageOne = '<img class="card_img" src="https://dev.adalab.es/gato-siames.webp" alt="gatito"/>' ;
+// const kittenNameOne = '<h3 class="card_title">Anastacio</h3>';
+// const kittenDescriptionOne = '<p class="card_description">Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente. (Imagen no correspondiente)</p>';
+// const kittenRaceOne = '<h4 class="card_race">Siamés</h4>';
 
-const kittenImageTwo = '<img class="card_img"src="https://dev.adalab.es/sphynx-gato.webp"      alt="sphynx-cat"/>';
-const kittenNameTwo = '<h3 class="card_title">Fiona</h3>';
-const kittenDescriptionTwo = '<p class="card_description"> elegante Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo. </p>';
-const kittenRaceTwo = '<h4 class="card_race">Sphynx</h4>';
+// const kittenImageTwo = '<img class="card_img"src="https://dev.adalab.es/sphynx-gato.webp"      alt="sphynx-cat"/>';
+// const kittenNameTwo = '<h3 class="card_title">Fiona</h3>';
+// const kittenDescriptionTwo = '<p class="card_description"> elegante Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo. </p>';
+// const kittenRaceTwo = '<h4 class="card_race">Sphynx</h4>';
 
-const kittenImageThree = '<img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp"   alt="maine-coon-cat" />';
-const kittenNameThree = '<h3 class="card_title">Cielo</h3>';
-const kittenDescriptionThree = '<p lass="card_description"> Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.   </p>';
-const kittenRaceThree = '<h4 class="card_race">Maine Coon</h4>';
+// const kittenImageThree = '<img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp"   alt="maine-coon-cat" />';
+// const kittenNameThree = '<h3 class="card_title">Cielo</h3>';
+// const kittenDescriptionThree = '<p lass="card_description"> Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.   </p>';
+// const kittenRaceThree = '<h4 class="card_race">Maine Coon</h4>';
 
-const kittenOne = `<li>${kittenImageOne} ${kittenNameOne.toUpperCase()} ${kittenRaceOne} ${kittenDescriptionOne}</li>`;
-const kittenTwo = `<li>${kittenImageTwo} ${kittenNameTwo.toUpperCase()} ${kittenRaceTwo} ${kittenDescriptionTwo}</li>`;
-const kittenThree = `<li>${kittenImageThree} ${kittenNameThree.toUpperCase()} ${kittenRaceThree} ${kittenDescriptionThree}</li>`;
+// const kittenOne = `<li>${kittenImageOne} ${kittenNameOne.toUpperCase()} ${kittenRaceOne} ${kittenDescriptionOne}</li>`;
+// const kittenTwo = `<li>${kittenImageTwo} ${kittenNameTwo.toUpperCase()} ${kittenRaceTwo} ${kittenDescriptionTwo}</li>`;
+// const kittenThree = `<li>${kittenImageThree} ${kittenNameThree.toUpperCase()} ${kittenRaceThree} ${kittenDescriptionThree}</li>`;
 
 // kitten.innerHTML=kittenOne + kittenTwo + kittenThree;
 
@@ -52,7 +53,7 @@ const kittenThree = `<li>${kittenImageThree} ${kittenNameThree.toUpperCase()} ${
 //     kitten.innerHTML += kittenThree;
 // }
 
-//FALTA LA RAZA. SIN TERMINAR
+//FALTA LA RAZA.
 // const race = document.querySelectorAll('.card_race');
 // let kittenRace = race.value;
 
@@ -133,15 +134,13 @@ function addNewKitten(event) {
     let valueDesc = inputDesc.value;
     let valuePhoto = inputPhoto.value;
     let valueName = inputName.value;
-   let valueRace = inputRace.value; 
+    let valueRace = inputRace.value; 
    
    console.log(valueDesc);
     if (valueDesc === '' || valuePhoto === '' || valueName === '') {
         labelMessageError.innerHTML="Uy, parece que has olvidado algo!";
-        console.log('medio');
     } else {
         renderKitten(valuePhoto, valueDesc, valueName, valueRace);
-        console.log('hola');
     }
 }
 
@@ -177,25 +176,41 @@ btnCancel.addEventListener('click', cancelNewKitten);
 // });
 
 //AÑADIR GATO: 
+
 // let valueDesc = inputDesc.value;
 // let valuePhoto = inputPhoto.value;
 // let valueName = inputName.value;
 
-function renderKitten(valuePhoto, valueDesc, valueName, valueRace) {
-  //completa el código
-    let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${valueRace} ${valueDesc}</li>`;
-    kitten.innerHTML += newKitten;
+// function renderKitten(valuePhoto, valueDesc, valueName, valueRace) {
+//     // let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${valueRace} ${valueDesc}</li>`;
+//     // kitten.innerHTML += newKitten;
+//     const race1 = `<h3 class="card_race">${valueRace}</h3>`;
+//     const race2 = `<p class="card_race">Uy que despiste, no sabemos su raza</p>`;
 
-}
+//     if(valueRace!==''){
+//       let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${race1} ${valueDesc}</li>`;
+//       kitten.innerHTML += newKitten;
+//     }else{
+//       let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${race2} ${valueDesc}</li>`;
+//       kitten.innerHTML += newKitten;
+//     }
+// }
 
 //FLITRAR GATO VERSION 2.0
 
 const buttonSearch = document.querySelector('.js-btn-search');
 const input_search_desc = document.querySelector('.js_in_search_desc');
+const input_search_race = document.querySelector('.js-type-cat');
+
 
 const filterKitten = (event) => {
-  event.preventDefault();
+  event.preventDefault();  
   const descrSearchText = input_search_desc.value;
+  const descrSearchRace= input_search_race.value;
+
+  if(descrSearchText==='' && descrSearchRace=== ''){
+    alert("TE FALTAN DATOS DE BÚSQUEDA");
+  }
   
   if (kittenDescriptionOne.includes(descrSearchText)) {
     kitten.innerHTML += kittenOne;
@@ -205,9 +220,46 @@ const filterKitten = (event) => {
   }
   if (kittenDescriptionThree.includes(descrSearchText)) {
     kitten.innerHTML += kittenThree;
-  }
+  }  
 };
 
 buttonSearch.addEventListener('click', filterKitten);
 
+//CONVERTIR EL GATO EN UN OBJETO
 
+const kittenData_1 = {
+  image: 'https://dev.adalab.es/gato-siames.webp',
+  name: '',
+  desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+  race: 'Siamés',
+};
+
+const kittenData_2 ={
+  image: 'https://dev.adalab.es/sphynx-gato.webp',
+  name: 'Fiona',
+  desc: 'elegante Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.',
+  race: 'Sphynx',
+};
+
+const kittenData_3 ={
+  image: 'https://dev.adalab.es/maine-coon-cat.webp',
+  name: 'Anastacio',
+  desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
+  race: 'Maine Coon',
+};
+
+function renderKitten(kittenData) {
+  //linea 184
+  const kittenImageOne = `<img class="card_img" src="${kittenData.image}" alt="gatito"/>`;
+  const kittenNameOne = `<h3 class="card_title">${kittenData.name}</h3>`;
+  const kittenDescriptionOne = `<p class="card_description">${kittenData.Desc}</p>`;
+  const kittenRaceOne = `<h4 class="card_race">${kittenData.race}</h4>`;
+  const kittenOne = `<li>${kittenImageOne} ${kittenNameOne.toUpperCase()} ${kittenRaceOne} ${kittenDescriptionOne}</li>`;
+
+  kitten.innerHTML=kittenOne;
+
+}
+
+renderKitten(kittenData_1);
+renderKitten(kittenData_2);
+renderKitten(kittenData_3);
