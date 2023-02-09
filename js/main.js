@@ -36,38 +36,35 @@ const kittenThree = `<li>${kittenImageThree} ${kittenNameThree.toUpperCase()} ${
 // kitten.innerHTML=kittenOne + kittenTwo + kittenThree;
 
 
+//FILTRAR GATO VERSION BETA
+// const input_search_desc = document.querySelector('.js_in_search_desc');
+// const descrSearchText = input_search_desc.value;
 
-const input_search_desc = document.querySelector('.js_in_search_desc');
-const descrSearchText = input_search_desc.value;
+// if( kittenDescriptionOne.includes(descrSearchText) ) {
+//     kitten.innerHTML = kittenOne;
+// }
 
+// if( kittenDescriptionTwo.includes(descrSearchText) ) {
+//     kitten.innerHTML += kittenTwo;
+// }
 
+// if( kittenDescriptionThree.includes(descrSearchText) ) {
+//     kitten.innerHTML += kittenThree;
+// }
 
-if( kittenDescriptionOne.includes(descrSearchText) ) {
-    kitten.innerHTML = kittenOne;
-}
+//FALTA LA RAZA. SIN TERMINAR
+// const race = document.querySelectorAll('.card_race');
+// let kittenRace = race.value;
 
-if( kittenDescriptionTwo.includes(descrSearchText) ) {
-    kitten.innerHTML += kittenTwo;
-}
+// let html = '';
 
-if( kittenDescriptionThree.includes(descrSearchText) ) {
-    kitten.innerHTML += kittenThree;
-}
-
-
-
-const race = document.querySelectorAll('.card_race');
-let kittenRace = race.value;
-
-let html = '';
-
-if (kittenRace === "") {
-  html = `Uy que despiste, no sabemos su raza`;
-  console.log(html);
-} else {
-  html = kittenRace;
-  console.log(html);
-}
+// if (kittenRace === "") {
+//   html = `Uy que despiste, no sabemos su raza`;
+//   console.log(html);
+// } else {
+//   html = kittenRace;
+//   console.log(html);
+// }
 
 
 //MUESTRA Y OCULTA FORMULARIO DE INSERCION DE GATO
@@ -154,9 +151,8 @@ function addNewKitten(event) {
 
 const btnCancel = document.querySelector('.js-btn-cancel');
 
-btnCancel.addEventListener('click', (event)=>{
-    if(valueDesc !=='' || valuePhoto!== '' || valueName!==''){
-        valueDesc === '';
+const cancelNewKitten = (event) => {
+  if(valueDesc !=='' || valuePhoto!== '' || valueName!==''){     valueDesc === '';
         valuePhoto === ''; 
         valueName === '';
         formCollapsed.classList.add('collapsed');
@@ -164,7 +160,21 @@ btnCancel.addEventListener('click', (event)=>{
     }else{
         formCollapsed.classList.add('collapsed');
     }
-});
+};
+
+btnCancel.addEventListener('click', cancelNewKitten);
+
+// btnCancel.addEventListener('click', (event)=>{
+//     if(valueDesc !=='' || valuePhoto!== '' || valueName!==''){
+//         valueDesc === '';
+//         valuePhoto === ''; 
+//         valueName === '';
+//         formCollapsed.classList.add('collapsed');
+
+//     }else{
+//         formCollapsed.classList.add('collapsed');
+//     }
+// });
 
 //AÑADIR GATO: 
 // let valueDesc = inputDesc.value;
@@ -176,4 +186,28 @@ function renderKitten(valuePhoto, valueDesc, valueName, valueRace) {
     let newKitten = `<li>${valuePhoto} ${valueName.toUpperCase()} ${valueRace} ${valueDesc}</li>`;
     kitten.innerHTML += newKitten;
 
+}
+
+//FLITRAR GATO VERSION 2.0
+
+const buttonSearch = document.querySelector('.js-btn-search');
+const input_search_desc = document.querySelector('.js_in_search_desc');
+
+const filterKitten = (event) => {
+  event.preventDefault();
+  const descrSearchText = input_search_desc.value;
+  
+  if (kittenDescriptionOne.includes(descrSearchText)) {
+    kitten.innerHTML += kittenOne;
+  }
+  if (kittenDescriptionTwo.includes(descrSearchText)) {
+    kitten.innerHTML += kittenTwo;
+  }
+  if (kittenDescriptionThree.includes(descrSearchText)) {
+    kitten.innerHTML += kittenThree;
+  }
 };
+
+buttonSearch.addEventListener('click', filterKitten);
+
+
