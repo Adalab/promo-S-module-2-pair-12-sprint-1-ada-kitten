@@ -203,27 +203,28 @@ const input_search_desc = document.querySelector('.js_in_search_desc');
 const input_search_race = document.querySelector('.js-type-cat');
 
 
-const filterKitten = (event) => {
-  event.preventDefault();  
-  const descrSearchText = input_search_desc.value;
-  const descrSearchRace= input_search_race.value;
+// const filterKitten = (event) => {
+//   event.preventDefault();  
+//   const descrSearchText = input_search_desc.value;
+//   const descrSearchRace= input_search_race.value;
 
-  if(descrSearchText==='' && descrSearchRace=== ''){
-    alert("TE FALTAN DATOS DE BÚSQUEDA");
-  }
+//   if(descrSearchText==='' && descrSearchRace=== ''){
+//     alert("TE FALTAN DATOS DE BÚSQUEDA");
+//   }
   
-  if (kittenDescriptionOne.includes(descrSearchText)) {
-    kitten.innerHTML += kittenOne;
-  }
-  if (kittenDescriptionTwo.includes(descrSearchText)) {
-    kitten.innerHTML += kittenTwo;
-  }
-  if (kittenDescriptionThree.includes(descrSearchText)) {
-    kitten.innerHTML += kittenThree;
-  }  
-};
+//   if (kittenDescriptionOne.includes(descrSearchText)) {
+//     kitten.innerHTML += kittenOne;
+//   }
+//   if (kittenDescriptionTwo.includes(descrSearchText)) {
+//     kitten.innerHTML += kittenTwo;
+//   }
+//   if (kittenDescriptionThree.includes(descrSearchText)) {
+//     kitten.innerHTML += kittenThree;
+//   }  
+// };
 
-buttonSearch.addEventListener('click', filterKitten);
+
+// buttonSearch.addEventListener('click', filterKitten);
 
 //CONVERTIR EL GATO EN UN OBJETO
 
@@ -256,13 +257,42 @@ function renderKitten(objectKitten) {
   const kittenNameOne = `<h3 class="card_title">${objectKitten.name}</h3>`;
   const kittenDescriptionOne = `<p class="card_description">${objectKitten.desc}</p>`;
   const kittenRaceOne = `<h4 class="card_race">${objectKitten.race}</h4>`;
+
   const kittenOne = `<li>${kittenImageOne} ${kittenNameOne.toUpperCase()} ${kittenRaceOne} ${kittenDescriptionOne}</li>`;
 
   kitten.innerHTML+=kittenOne;
 }
 
-renderKitten(kittenDataList[0]);
-renderKitten(kittenDataList[1]);
-renderKitten(kittenDataList[2]);
+// renderKitten(kittenDataList[0]);
+// renderKitten(kittenDataList[1]);
+// renderKitten(kittenDataList[2]);
+
+function renderKittenList(kittenDataList) {
+  for (let i=0; i<kittenDataList.length; i++){
+    renderKitten(kittenDataList[i]);
+  }
+}
+
+renderKittenList(kittenDataList);
 
 
+//FILTRADO GATITO:
+
+function filterKitten(event) {
+  event.preventDefault();
+  const descrSearchText = input_search_desc.value;
+  const descrSearchRace= input_search_race.value;
+  kitten.innerHTML = '';
+  console.log(descrSearchRace);
+  for (const kittenItem of kittenDataList) {
+
+    //DUPLICA LA BÚSQUEDA: DESCRIPCIÓN Y RAZA (STRING VACÍA)
+    if (kittenItem.desc.includes(descrSearchText) ){
+    renderKitten(kittenItem); 
+    }if(kittenItem.race.toLowerCase().includes(descrSearchRace.toLowerCase()) ){
+      renderKitten(kittenItem);
+    }
+  }
+};
+
+buttonSearch.addEventListener('click', filterKitten);
