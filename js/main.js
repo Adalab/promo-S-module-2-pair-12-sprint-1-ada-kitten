@@ -248,18 +248,21 @@ const kittenData_3 ={
   race: 'Maine Coon',
 };
 
-function renderKitten(kittenData) {
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
+
+function renderKitten(objectKitten) {
   //linea 184
-  const kittenImageOne = `<img class="card_img" src="${kittenData.image}" alt="gatito"/>`;
-  const kittenNameOne = `<h3 class="card_title">${kittenData.name}</h3>`;
-  const kittenDescriptionOne = `<p class="card_description">${kittenData.Desc}</p>`;
-  const kittenRaceOne = `<h4 class="card_race">${kittenData.race}</h4>`;
+  const kittenImageOne = `<img class="card_img" src="${objectKitten.image}" alt="gatito"/>`;
+  const kittenNameOne = `<h3 class="card_title">${objectKitten.name}</h3>`;
+  const kittenDescriptionOne = `<p class="card_description">${objectKitten.desc}</p>`;
+  const kittenRaceOne = `<h4 class="card_race">${objectKitten.race}</h4>`;
   const kittenOne = `<li>${kittenImageOne} ${kittenNameOne.toUpperCase()} ${kittenRaceOne} ${kittenDescriptionOne}</li>`;
 
-  kitten.innerHTML=kittenOne;
-
+  kitten.innerHTML+=kittenOne;
 }
 
-renderKitten(kittenData_1);
-renderKitten(kittenData_2);
-renderKitten(kittenData_3);
+renderKitten(kittenDataList[0]);
+renderKitten(kittenDataList[1]);
+renderKitten(kittenDataList[2]);
+
+
